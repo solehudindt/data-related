@@ -33,6 +33,7 @@
        WHEN rating = 3 THEN 'netral'
        WHEN rating <= 2 THEN 'negatif'
    END;
+   ```
 
 ### 4. **Menganalisis Sentimen Berdasarkan Kategori Produk**
    - Anda juga bisa melihat bagaimana sentimen berbeda berdasarkan kategori produk.
@@ -48,6 +49,7 @@
        category, sentiment
    ORDER BY
        category, sentiment_count DESC;
+   ```
 
 ![Screenshot 2024-08-26 213943](https://github.com/user-attachments/assets/e6edb6ad-c520-4618-85fb-945b69377aba)
 
@@ -65,6 +67,7 @@
        shop_id, sentiment
    ORDER BY
        shop_id, sentiment_count DESC;
+   ```
 
 ### 7. **Mendapatkan Produk dengan Sentimen Negatif Tertinggi**
    - Query ini bisa membantu Anda menemukan produk yang paling sering mendapatkan ulasan negatif.
