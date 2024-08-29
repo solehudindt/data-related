@@ -35,8 +35,8 @@
    END;
    ```
 
-### 4. **Menganalisis Sentimen Berdasarkan Kategori Produk**
-   - Anda juga bisa melihat bagaimana sentimen berbeda berdasarkan kategori produk.
+### 4. **Sentiment Analysist by Product Category**
+   - Showing category, sentiment and product with the most review by category and sentiment.
 
    ```sql
    SELECT
@@ -44,7 +44,7 @@
        sentiment,
        COUNT(*) AS sentiment_count
    FROM
-       your_table_name
+       reviews
    GROUP BY
        category, sentiment
    ORDER BY
@@ -53,8 +53,8 @@
 
 ![Screenshot 2024-08-26 213943](https://github.com/user-attachments/assets/e6edb6ad-c520-4618-85fb-945b69377aba)
 
-### 5. **Menganalisis Sentimen Berdasarkan Toko (Shop ID)**
-   - Mengetahui toko mana yang mendapatkan ulasan positif atau negatif terbanyak juga bisa memberikan insight penting.
+### 5. **Sentiment Analysist by the Store(`shop_id)**
+   - Trying to find out which stores have the most positive or negative reviews.
 
    ```sql
    SELECT
@@ -62,23 +62,24 @@
        sentiment,
        COUNT(*) AS sentiment_count
    FROM
-       your_table_name
+       reviews
    GROUP BY
        shop_id, sentiment
    ORDER BY
        shop_id, sentiment_count DESC;
    ```
+![Screenshot 2024-08-26 214255](https://github.com/user-attachments/assets/7359e784-3b62-4df0-96b8-1f3ada7a6f5d)
 
-### 7. **Mendapatkan Produk dengan Sentimen Negatif Tertinggi**
-   - Query ini bisa membantu Anda menemukan produk yang paling sering mendapatkan ulasan negatif.
+
+### 6. **Producst with The Most Negative Reviews**
+   - trying to find out which product have the most negative reviews.
 
    ```sql
    SELECT
-       product_id,
        product_name,
        COUNT(*) AS negative_reviews
    FROM
-       your_table_name
+       reviews
    WHERE
        sentiment = 'negatif'
    GROUP BY
@@ -88,3 +89,21 @@
    LIMIT 10;
 
    ```
+![Screenshot 2024-08-26 214942](https://github.com/user-attachments/assets/4708f7ac-613a-48df-b4cf-3ab3d73fd875)
+
+
+### 7. **Product Popularity by Rating Volume**
+
+   ```sql
+  SELECT
+       product_name,
+       SUM(sold) AS sum_sold,
+       COUNT(rating) AS num_rating
+   FROM
+       reviews
+   GROUP BY
+       product_name
+   ORDER BY
+       num_rating DESC
+   ```
+ ![Screenshot 2024-08-29 203137](https://github.com/user-attachments/assets/0143fe8e-385e-402b-9175-f0da8bbca7ad)
