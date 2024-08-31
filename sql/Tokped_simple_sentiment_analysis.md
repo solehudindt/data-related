@@ -12,8 +12,8 @@
      - `product_url`: URL Product.
 
 ### 2. **A bit of Normalization before goes to PostgreSQL**
-   - Some values in `sold are not well-formatted; they include blank entries, the text 'broken', and values that use 'rb' to denote thousands.
-   - With excel I normalize it using countif(`product_id) and substitute() times 1000 for the 'rb'.
+   - Some values in `sold` are not well-formatted; they include blank entries, the text 'broken', and values that use 'rb' to denote thousands.
+   - With excel I normalize it using countif(`product_id`) and substitute() times 1000 for the 'rb'.
      
 ### 3. **Clasifying Sentiment based on Rating**
    - Since it's a based on out of 5 rating, the clasification of the sentiment can be set up as follow :
